@@ -5,15 +5,16 @@ import { CalendarIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 const CustomDatePicker = ({ value, onChange, className = "", t }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [coords, setCoords] = useState({ top: 0, left: 0 });
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);
   const containerRef = useRef(null);
+  const calendarRef = useRef(null);
 
   const initialDate = value ? new Date(value) : new Date();
   const [viewDate, setViewDate] = useState(initialDate);
 
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < 768;
+      const mobile = window.matchMedia('(max-width: 768px)').matches;
       setIsMobile(mobile);
       if (isOpen && !mobile) updatePosition();
     };
@@ -23,20 +24,39 @@ const CustomDatePicker = ({ value, onChange, className = "", t }) => {
 
   const updatePosition = () => {
     if (containerRef.current && !isMobile) {
-      const rect = containerRef.current.getBoundingClientRect();
-      setCoords({
-        left: rect.left,
-        top: rect.bottom + 8,
-      });
+      const inputRect = containerRef.current.getBoundingClientRect();
+      const screenW = window.innerWidth;
+      
+      const calWidth = 320;
+      const calHeight = 360;
+      const gap = 8;
+
+      let top = inputRect.top - calHeight - gap;
+      
+      if (top < 0) {
+        top = inputRect.bottom + gap;
+      }
+
+      let left = inputRect.right - calWidth;
+
+      if (left < 10) {
+        left = inputRect.left;
+      }
+
+      if (left + calWidth > screenW) {
+        left = screenW - calWidth - 10;
+      }
+
+      setCoords({ left, top });
     }
   };
 
   useEffect(() => {
     if (isOpen && !isMobile) {
-        updatePosition();
-        window.addEventListener('scroll', () => setIsOpen(false), true);
+        requestAnimationFrame(updatePosition);
+        window.addEventListener('scroll', updatePosition, true);
     }
-    return () => window.removeEventListener('scroll', () => setIsOpen(false), true);
+    return () => window.removeEventListener('scroll', updatePosition, true);
   }, [isOpen, isMobile]);
 
   const handleDayClick = (day) => {
@@ -60,10 +80,11 @@ const CustomDatePicker = ({ value, onChange, className = "", t }) => {
 
   const calendarContent = (
     <div 
+        ref={calendarRef}
         className={`
             bg-white dark:bg-[#1E1E24] border border-slate-200 dark:border-white/10 shadow-2xl font-sans animate-fade-in
             ${isMobile 
-                ? 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] rounded-2xl p-5 z-[9999]' 
+                ? 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] rounded-2xl p-5 z-[9999]' 
                 : 'fixed w-[320px] rounded-xl p-4 z-[9999]'
             }
         `}
@@ -130,7 +151,8 @@ const CustomDatePicker = ({ value, onChange, className = "", t }) => {
       
       {isOpen && ReactDOM.createPortal(
         <>
-          {isMobile && <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998]" onClick={() => setIsOpen(false)} />}
+          <div className="fixed inset-0 bg-black/10 z-[9998]" onClick={() => setIsOpen(false)} />
+          {isMobile && <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]" onClick={() => setIsOpen(false)} />}
           {calendarContent}
         </>,
         document.body

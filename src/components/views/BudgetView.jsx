@@ -6,16 +6,18 @@ export const BudgetView = ({ budget, setBudget, totalMonthly, currencySign, t, t
     
     let monthsLeft = 0;
     let runwayText = "0 " + t.months;
+    
     if (budgetNum > 0) {
         if (totalMonthly === 0) {
             runwayText = t.forever || "∞";
         } else {
-            monthsLeft = budgetNum / totalMonthly;
+            monthsLeft = Math.floor(budgetNum / totalMonthly);
+            
             if (monthsLeft < 1) {
-                const days = Math.round(monthsLeft * 30);
+                const days = Math.floor((budgetNum / totalMonthly) * 30);
                 runwayText = `${days} ${t.daysLeft}`;
             } else {
-                runwayText = `${monthsLeft.toFixed(1)} ${t.months}`;
+                runwayText = `${monthsLeft} ${t.months}`;
             }
         }
     }

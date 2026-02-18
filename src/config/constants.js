@@ -85,6 +85,74 @@ export const PLACEHOLDERS = {
   food: ['Glovo Prime', 'Uber Eats', 'Bolt Food', 'HelloFresh', 'Coffee Subscription']
 };
 
+export const SERVICE_PRESETS = [
+  { name: 'Netflix', category: 'entertainment', color: 'bg-rose-900', price: 9.99 },
+  { name: 'YouTube Premium', category: 'entertainment', color: 'bg-rose-500', price: 7.99 },
+  { name: 'Megogo', category: 'entertainment', color: 'bg-slate-800', price: 199 },
+  { name: 'Sweet.tv', category: 'entertainment', color: 'bg-orange-500', price: 99 },
+  { name: 'Steam', category: 'entertainment', color: 'bg-blue-900' },
+  { name: 'PlayStation Plus', category: 'entertainment', color: 'bg-blue-600' },
+  { name: 'Xbox Game Pass', category: 'entertainment', color: 'bg-green-600' },
+  { name: 'Discord Nitro', category: 'entertainment', color: 'bg-indigo-500' },
+  { name: 'Disney+', category: 'entertainment', color: 'bg-blue-800', price: 7.99 },
+  { name: 'Hulu', category: 'entertainment', color: 'bg-green-500', price: 6.99 },
+  { name: 'HBO Max', category: 'entertainment', color: 'bg-purple-700', price: 9.99 },
+  { name: 'Prime Video', category: 'entertainment', color: 'bg-sky-600', price: 8.99 },
+  { name: 'Twitch Sub', category: 'entertainment', color: 'bg-purple-600', price: 4.99 },
+  { name: 'Crunchyroll', category: 'entertainment', color: 'bg-orange-500', price: 7.99 },
+  { name: 'Paramount+', category: 'entertainment', color: 'bg-blue-500', price: 4.99 },
+  { name: 'Apple TV+', category: 'entertainment', color: 'bg-slate-900', price: 6.99 },
+  { name: 'Spotify', category: 'music', color: 'bg-green-600', price: 4.99 },
+  { name: 'Apple Music', category: 'music', color: 'bg-rose-500', price: 5.99 },
+  { name: 'YouTube Music', category: 'music', color: 'bg-red-600', price: 9.99 },
+  { name: 'SoundCloud Go+', category: 'music', color: 'bg-orange-600', price: 9.99 },
+  { name: 'Deezer', category: 'music', color: 'bg-purple-600', price: 10.99 },
+  { name: 'Tidal', category: 'music', color: 'bg-black', price: 9.99 },
+  { name: 'Epidemic Sound', category: 'music', color: 'bg-pink-600', price: 15 },
+  { name: 'ChatGPT Plus', category: 'work', color: 'bg-emerald-500', price: 20 },
+  { name: 'Midjourney', category: 'work', color: 'bg-slate-900', price: 10 },
+  { name: 'Adobe Creative Cloud', category: 'software', color: 'bg-red-600', price: 54.99 },
+  { name: 'Figma', category: 'work', color: 'bg-black', price: 12 },
+  { name: 'Notion', category: 'work', color: 'bg-slate-700', price: 8 },
+  { name: 'GitHub Copilot', category: 'work', color: 'bg-slate-800', price: 10 },
+  { name: 'Zoom', category: 'work', color: 'bg-blue-500', price: 14.99 },
+  { name: 'Slack', category: 'work', color: 'bg-fuchsia-800', price: 7.25 },
+  { name: 'Microsoft 365', category: 'work', color: 'bg-blue-600', price: 6.99 },
+  { name: 'Canva Pro', category: 'work', color: 'bg-cyan-500', price: 12.99 },
+  { name: 'Vercel', category: 'software', color: 'bg-black', price: 20 },
+  { name: 'DigitalOcean', category: 'software', color: 'bg-blue-500', price: 5 },
+  { name: 'JetBrains', category: 'software', color: 'bg-purple-500', price: 20 },
+  { name: '1Password', category: 'software', color: 'bg-blue-700', price: 2.99 },
+  { name: 'LastPass', category: 'software', color: 'bg-red-600', price: 3 },
+  { name: 'Google One', category: 'utilities', color: 'bg-blue-500', price: 1.99 },
+  { name: 'iCloud', category: 'utilities', color: 'bg-blue-400', price: 0.99 },
+  { name: 'Dropbox', category: 'utilities', color: 'bg-blue-700', price: 9.99 },
+  { name: 'Kyivstar', category: 'utilities', color: 'bg-blue-500' },
+  { name: 'Vodafone', category: 'utilities', color: 'bg-red-600' },
+  { name: 'Lifecell', category: 'utilities', color: 'bg-yellow-400' },
+  { name: 'NordVPN', category: 'utilities', color: 'bg-blue-600', price: 3.49 },
+  { name: 'ExpressVPN', category: 'utilities', color: 'bg-red-700', price: 12.95 },
+  { name: 'Surfshark', category: 'utilities', color: 'bg-teal-500', price: 2.30 },
+  { name: 'Internet Provider', category: 'utilities', color: 'bg-slate-500' },
+  { name: 'Amazon Prime', category: 'shopping', color: 'bg-blue-400', price: 14.99 },
+  { name: 'Glovo Prime', category: 'food', color: 'bg-yellow-400', price: 5.99 },
+  { name: 'Uber Eats Pass', category: 'food', color: 'bg-green-500', price: 9.99 },
+  { name: 'Bolt Food', category: 'food', color: 'bg-green-500' },
+  { name: 'HelloFresh', category: 'food', color: 'bg-lime-500' },
+  { name: 'Walmart+', category: 'shopping', color: 'bg-blue-500', price: 12.95 },
+  { name: 'eBay Store', category: 'shopping', color: 'bg-red-500' },
+  { name: 'AliExpress', category: 'shopping', color: 'bg-orange-500' },
+  { name: 'Uber One', category: 'transport', color: 'bg-black', price: 9.99 },
+  { name: 'Bolt', category: 'transport', color: 'bg-green-500' },
+  { name: 'Gym Membership', category: 'health', color: 'bg-slate-600' },
+  { name: 'Strava', category: 'health', color: 'bg-orange-600', price: 5 },
+  { name: 'MyFitnessPal', category: 'health', color: 'bg-blue-500', price: 9.99 },
+  { name: 'Headspace', category: 'health', color: 'bg-orange-400', price: 12.99 },
+  { name: 'Calm', category: 'health', color: 'bg-blue-400', price: 14.99 },
+  { name: 'Duolingo', category: 'health', color: 'bg-green-500', price: 6.99 },
+  { name: 'MasterClass', category: 'health', color: 'bg-slate-800', price: 15 }
+];
+
 export const SERVICES_DB = { GLOBAL: [], UA: [], EU: [] };
 
 export const TRANSLATIONS = {
@@ -113,7 +181,8 @@ export const TRANSLATIONS = {
     weekDaysShort: ['Нд', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
     subsPlural: ['підписка', 'підписки', 'підписок'], 
     runway: 'Вистачить на',
-    forever: 'Назавжди'
+    forever: 'Назавжди',
+    fillError: 'Будь ласка, заповніть назву та ціну'
   },
   RU: {
     appName: 'SubsTracker', dashboard: 'Главная', calendar: 'Календарь', analytics: 'Аналитика', budget: 'Бюджет', settings: 'Настройки', 
@@ -140,7 +209,8 @@ export const TRANSLATIONS = {
     weekDaysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
     subsPlural: ['подписка', 'подписки', 'подписок'],
     runway: 'Хватит на',
-    forever: 'Навсегда'
+    forever: 'Навсегда',
+    fillError: 'Пожалуйста, заполните название и цену'
   },
   EN: { 
     appName: 'SubsTracker', dashboard: 'Dashboard', calendar: 'Calendar', analytics: 'Analytics', budget: 'Budget', settings: 'Settings', 
@@ -167,7 +237,8 @@ export const TRANSLATIONS = {
     weekDaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
     subsPlural: ['subscription', 'subscriptions', 'subscriptions'],
     runway: 'Funds last',
-    forever: 'Forever'
+    forever: 'Forever',
+    fillError: 'Please fill out name and price'
   },
   PL: {
     appName: 'SubsTracker', dashboard: 'Pulpit', calendar: 'Kalendarz', analytics: 'Analityka', budget: 'Budżet', settings: 'Ustawienia',
@@ -194,7 +265,8 @@ export const TRANSLATIONS = {
     weekDaysShort: ['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So'],
     subsPlural: ['subskrypcja', 'subskrypcje', 'subskrypcji'],
     runway: 'Wystarczy na',
-    forever: 'Na zawsze'
+    forever: 'Na zawsze',
+    fillError: 'Proszę wypełnić nazwę i cenę'
   },
   DE: {
     appName: 'SubsTracker', dashboard: 'Übersicht', calendar: 'Kalender', analytics: 'Analyse', budget: 'Budget', settings: 'Einstellungen',
@@ -221,7 +293,8 @@ export const TRANSLATIONS = {
     weekDaysShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
     subsPlural: ['Abonnement', 'Abonnements', 'Abonnements'],
     runway: 'Reicht für',
-    forever: 'Für immer'
+    forever: 'Für immer',
+    fillError: 'Bitte Namen und Preis ausfüllen'
   },
   ES: {
     appName: 'SubsTracker', dashboard: 'Tablero', calendar: 'Calendario', analytics: 'Analítica', budget: 'Presupuesto', settings: 'Ajustes',
@@ -248,6 +321,7 @@ export const TRANSLATIONS = {
     weekDaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
     subsPlural: ['suscripción', 'suscripciones', 'suscripciones'],
     runway: 'Dura para',
-    forever: 'Para siempre'
+    forever: 'Para siempre',
+    fillError: 'Por favor complete nombre y precio'
   }
 };
